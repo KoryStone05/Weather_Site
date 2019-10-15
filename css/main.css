@@ -1,0 +1,17 @@
+body {
+    background-color: navy;
+    font-family: 'Cinzel', serif;
+font-family: 'Bad Script', cursive;
+}
+
+.btn {
+    background-color: navy;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn:hover {
+    background-color: darkgray;
+    border: 2px solid navy;
+    color: navy;
+}
