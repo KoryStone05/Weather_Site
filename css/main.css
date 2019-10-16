@@ -1,7 +1,8 @@
 body {
-    background-color: navy;
+    background-color: slategray;
     font-family: 'Cinzel', serif;
-font-family: 'Bad Script', cursive;
+    font-family: 'Bad Script', cursive;
+    color: white;
 }
 
 .btn {
@@ -14,4 +15,41 @@ font-family: 'Bad Script', cursive;
     background-color: darkgray;
     border: 2px solid navy;
     color: navy;
+}
+
+.btn:focus {
+    background-color: navy;
+    border: 2px solid white;
+    color: white;
+}
+
+.weatherCard {
+    margin-top: 40px;
+    border: 2px solid white;
+    box-shadow: 5px 5px 5px black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#remove {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: black;
+    opacity: 0.5;
+    color: white;
+}
+
+#remove:hover {
+    opacity: 1.0;
+}
+
+h1 {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.list-group li {
+    border: 2px solid solid;
+    background-color: lightgray;
 }

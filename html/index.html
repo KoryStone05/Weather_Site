@@ -37,12 +37,32 @@
                     </li>
                   </ul>
                   <form class="form-inline my-4 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="City / Zip Code" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Get Weather</button>
+                    <input id="searchBar" class="form-control mr-sm-2" type="search" placeholder="City / Zip Code" aria-label="Search">
+                    <button id="submit" class="btn btn-outline-navy my-2 my-sm-0" type="button">Get Weather</button>
                   </form>
                 </div>
               </nav>    
               <!-- End Nav Bar -->
+
+              <!-- Weather Card -->
+              <div class="container">
+                <div class="row">
+                  <div id="template" class="col-xs-12 col-lg-4">
+                    <div class="weatherCard">
+                      <button type="button" id="remove">X</button>
+                      <h1>Louisville</h1>
+                      <h1>50&#8457</h1>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item" style="color: navy;">Location: Louisville</li>
+                        <li class="list-group-item" style="color: navy;">Current Conditions: Overcast</li>
+                        <li class="list-group-item" style="color: navy;">High Temp: 75&#8457</li>
+                        <li class="list-group-item" style="color: navy;">Low Temp: 30&#8457</li>
+                        <li class="list-group-item" style="color: navy;">Chance of Precipitation: 40%</li>                      
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
     <!-- JQuery, Popper.js, Bootstrap JS -->
