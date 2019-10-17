@@ -9,6 +9,20 @@
         $("#searchBar").val("");
 
     });
+
+    //When a button is clicked with the ID of remove in the document, call the function
+    $(document).on("click", "button#remove", function() {
+        //Get the parent element of the button
+        let parentDiv = $(this).parent(); //This refers to the element that triggered the event handler (in this case the button that was clicked)
+
+        //Get the parent of the div containing the button
+        let weatherCardContainer = parentDiv.parent();
+
+        //Remoce the container and all of its contents
+        weatherCardContainer.remove();
+
+    });
+
 })();
 
 //Function to connect to the Dark Sky API and get weather data
@@ -17,30 +31,36 @@ function getWeatherInfo(latitude, longitude, city, state, temperature, precipita
 
     $.ajax("https://api.darksky.net/forecast/" + darkSkyKey + "/" + latitude + "," + longitude, { dataType: "jsonp"}) 
     .done(function(data) {
-        console.log(data);
+        //Get the HTML from the div with the ID template
+        let templateHTML = $("#template").html();
 
-        let currently = data.results[0].currently[0];
-        // let daily = results[0].daily[0];
+        //We need to get the temperature from the Dark Sky data
+        let temperature = data.currently.temperature;
+        let conditions = data.currently.summary;
+        
+        let currentDayInfo = data.daily.data[0];
+        let highTemp = currentDayInfo.temperatureHigh;
+        let lowTemp = currentDayInfo.temperatureLow;
+        let precipChance = currentDayInfo.precipProbability * 100;
 
-        //See if you can get the following data from the JSON:
+        //Replace the string "@@city@@" with the city we pass into this function in the HTML
+        templateHTML = templateHTML.replace("@@city@@", city);
 
-        //1. Get the current temperature
+        //Replace the string "@@currentTemp@@" with the temperature we get back from the API call
+        templateHTML = templateHTML.replace("@@currentTemp@@", Math.round(temperature));
 
-        // let temperature = currently.temperature;
+        templateHTML = templateHTML.replace("@@cityState@@", city + " " + state);
 
-        // //2. Get the probability of precipitation
+        templateHTML = templateHTML.replace("@@conditions@@", conditions);
 
-        // let precipitation = currently.precipProbability;
+        templateHTML = templateHTML.replace("@@highTemp@@", Math.round(highTemp));
 
-        // //3. Get the high and low temperature for the current day (first element in the data array in the daily object)
+        templateHTML = templateHTML.replace("@@lowTemp@@", Math.round(lowTemp));
 
-        // let tempHigh = daily.temperatureHigh;
-        // let tempLow = daily.temperatureLow;
+        templateHTML = templateHTML.replace("@@precipProbability@@", precipChance + "%");
 
-        // console.log(temperature);
-        // console.log(precipitation);
-        // console.log(tempHigh + "/" + tempLow);
-
+        //Add the configured template HTML to our row in the card container
+        $(".row").append(templateHTML);
     }) 
     .fail(function(error) {
         console.log(error);

@@ -44,21 +44,26 @@
               </nav>    
               <!-- End Nav Bar -->
 
-              <!-- Weather Card -->
+              <!-- Weather Card Container -->
               <div class="container">
                 <div class="row">
-                  <div id="template" class="col-xs-12 col-lg-4">
-                    <div class="weatherCard">
-                      <button type="button" id="remove">X</button>
-                      <h1>Louisville</h1>
-                      <h1>50&#8457</h1>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style="color: navy;">Location: Louisville</li>
-                        <li class="list-group-item" style="color: navy;">Current Conditions: Overcast</li>
-                        <li class="list-group-item" style="color: navy;">High Temp: 75&#8457</li>
-                        <li class="list-group-item" style="color: navy;">Low Temp: 30&#8457</li>
-                        <li class="list-group-item" style="color: navy;">Chance of Precipitation: 40%</li>                      
-                      </ul>
+                </div>
+              </div>
+
+              <!-- Weather Card -->
+                  <div id="template" style="display: none;">
+                    <div class="col-xs-12 col-lg-4">
+                      <div class="weatherCard">
+                        <button type="button" id="remove">X</button>
+                        <h1>@@city@@</h1>
+                        <h1>@@currentTemp@@&#8457</h1>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item" style="color: navy;">Location: @@cityState@@</li>
+                          <li class="list-group-item" style="color: navy;">Current Conditions: @@conditions@@</li>
+                          <li class="list-group-item" style="color: navy;">High Temp: @@highTemp@@&#8457</li>
+                          <li class="list-group-item" style="color: navy;">Low Temp: @@lowTemp@@&#8457</li>
+                          <li class="list-group-item" style="color: navy;">Chance of Precipitation: @@precipProbability@@</li>                      
+                        </ul>
                     </div>
                   </div>
                 </div>
